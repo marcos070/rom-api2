@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "secure": false,
+    "target": "http://lvsdevwsv04-01.us.gspt.net:3801",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

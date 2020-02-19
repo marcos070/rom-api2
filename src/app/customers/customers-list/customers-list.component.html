@@ -1,0 +1,71 @@
+<filter-textbox (changed)="filter($event)"></filter-textbox>
+<br />
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th (click)="sort('sellerCode')">Seller Code</th>
+            <th (click)="sort('sellerParent')">Seller Parent</th>
+            <th (click)="sort('sellerName')">Seller Name</th>
+            <th (click)="sort('catalogID')">Catalog ID</th>
+            <th (click)="sort('orderPrefix')">Order Prefix</th>
+            <th (click)="sort('customerPrefix')">Customer Prefix</th>
+            <!--<th (click)="sort('radialPaymentsEnabled')">Radial Payments Enabled</th>-->
+            <th (click)="sort('radialTaxEnabled')">Radial Tax Enabled</th>
+            <!--<th (click)="sort('radialFrauEnabled')">Radial Fraud Enabled</th>-->
+            <th (click)="sort('jdaStoreNumber')">JDA Store</th>
+            <th (click)="sort('jdaDeptNumber')">JDA Dept</th>
+            <!--<th (click)="sort('status')">Status</th>
+            <th (click)="sort('tenders')">Tenders</th>
+            <th (click)="sort('fulfillNodes')">Fulfill Nodes</th>
+            <th (click)="sort('gcProviders')">GC Providers</th>
+            <th (click)="sort('sourcingRules')">Sourcing Rules</th>-->
+            <th (click)="sort('realtimeInvCalls')">POS(OMS)</th>
+            <th (click)="sort('hfrEnabled')">HFR</th>
+            <th (click)="sort('radialRMAEnabled')">Remorse</th>
+            <th (click)="sort('prmsInvEnabled')">Inventory</th>
+<!--        <th (click)="sort('sourcingRuleList')">sourcingRuleList</th>
+            <th (click)="sort('paymentTaxDetails')">paymentTaxDetails</th>-->
+    </thead>
+    <tr *ngFor= "let cust of filteredCustomers">
+        <td>
+            <a>
+              {{ cust.sellerCode }}
+            </a>
+        </td>
+        <td>{{ cust.sellerParent }}</td>
+        <td>{{ cust.sellerName }}</td>
+        <td>{{ cust.catalogID }}</td>
+        <td>{{ cust.orderPrefix }}</td>
+        <td>{{ cust.customerPrefix }}</td>
+        <!--<td>{{ cust.radialPaymentsEnabled }}</td>-->
+        <td>{{ cust.radialTaxEnabled }}</td>
+        <!--<td>{{ cust.radialFrauEnabled }}</td>-->
+        <td>{{ cust.jdaStoreNumber }}</td>
+        <td>{{ cust.jdaDeptNumber }}</td>
+        <!--<td>{{ cust.status }}</td>
+        <td>{{ cust.tenders }}</td>
+        <td>{{ cust.fulfillNodes }}</td>
+        <td>{{ cust.gcProviders }}</td>
+        <td>{{ cust.sourcingRules }}</td>-->
+        <td>{{ cust.realtimeInvCalls }}</td>
+        <td>{{ cust.hfrEnabled }}</td>
+        <td>{{ cust.radialRMAEnabled }}</td>
+        <td>{{ cust.prmsInvEnabled }}</td>
+<!--    <td>{{ cust.sourcingRuleList }}</td>
+        <td>{{ cust.paymentTaxDetails }}</td>-->
+    </tr>
+<!-- The ngIf allows the information to either be rendered or NOT depending on what information we
+  actuall have in out data set.   This is an Angular 'directive'-->
+<!--    <tr *ngIf="filteredCustomers && filteredCustomers.length">
+        <td colspan="2">&nbsp;</td>
+        <td>
+          Total:  {{ customersOrderTotal | currency:currencyCode:'symbol'}}
+        </td>
+    </tr>-->
+    <tr *ngIf="!filteredCustomers || !filteredCustomers.length">
+        <td colspan="4">No customers found</td>
+    </tr>
+</table>
+Number of Customers: {{ filteredCustomers.length }}
+<br />
